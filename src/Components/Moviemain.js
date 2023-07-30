@@ -22,7 +22,7 @@ const Moviemain = () => {
             setMovie(data)
         }
     }
-    catch{
+    catch{ 
         console.log("Error")
     }
     }
@@ -33,21 +33,26 @@ const Moviemain = () => {
     {
         return(
             <>
-            <div className="main">
-                <div>Loading</div>
+            <div className="h-[100vh] main flex justify-center items-center  bg-gray-950 text-white">
+                <div className='text-6xl'>Loading...</div>
             </div>
             </>
         )
     }
     return(
         <>
-        <div className="cont">
-        <h2>{Title}</h2>
+            <div className="navbar flex justify-between items-center p-4 bg-gray-800">
+    <div className='text-white font-bold text-4xl'>MovieDB</div>
+        <NavLink to="/">GO HOME</NavLink>
+    </div>
+        <div className="cont text-white flex p-4 justify-center gap-9">
         <img src={Poster} alt="" />
-        <h3>{Year}</h3>
-        <h3>{Type}</h3>
+        <div className="flex flex-col">
+        <h2 className='text-4xl font-bold'>{Title}</h2>
+        <div>{Year}</div>
+        <div>{Type}</div>
         </div>
-        <NavLink to="/">Go Home</NavLink>
+        </div>
         </>
     )
 }
