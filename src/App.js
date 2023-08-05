@@ -2,6 +2,7 @@
 import{Routes, Route} from "react-router-dom"
 import Home from "./Components/Home";
 import Moviemain from "./Components/Moviemain";
+import Movies from "./Components/Movies";
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}></Route>
       <Route path="movie/:id" element={<Moviemain/>}></Route>
+      <Route path="/" element={<Movies/>}></Route>
+
 
     </Routes>
     </div>

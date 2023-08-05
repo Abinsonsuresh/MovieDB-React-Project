@@ -8,10 +8,10 @@ const Search = () => {
     }
   return (
     <>
-    <section>
+    <section className=''>
         <form className='' action="#" onSubmit={(event)=>{event.preventDefault()}}></form>
         <div className="box flex  items-center ">
-          <div className='mr-2 text-white font-medium text-md'>Search</div>
+          <div className='hidden md:flex mr-2 text-white font-medium text-md'>Search</div>
             <input className='rounded-lg h-8 w-80 md:w-64 p-4' type="text" 
             placeholder='Search movie'
             value={search}

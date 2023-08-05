@@ -38,3 +38,5 @@
   "Website": "N/A",
   "Response": "True"
 }
+
+    const {Title, Poster, Year, Type, Runtime, Released, Genre, Plot, Language, imdbRating, imdbVotes, BoxOffice, Rated, Director, Writer, Actors} = movie;

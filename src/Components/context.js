@@ -37,7 +37,7 @@ const AppProvider = ({ children })=>{
         return()=> clearTimeout(timout)
     },[search])
 
-    return <AppContext.Provider value={ {movie, search, setSearch} }>{children}</AppContext.Provider>
+    return <AppContext.Provider value={ {movie, search, setSearch, loading} }>{children}</AppContext.Provider>
 }
 
 const useGlobalContext=()=>{
