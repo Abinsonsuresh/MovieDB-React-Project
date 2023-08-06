@@ -25,7 +25,7 @@ const Movies = () => {
   return (
     <> 
     <Navbar/>
-    <div className="container pt-4 h-full">
+    <div className="container pt-4">
         <div className="mdata flex flex-row items-center justify-center gap-9 flex-wrap ">
             {
                 movie.map((dataFromMovie)=>{
@@ -54,7 +54,7 @@ const Movies = () => {
     </div>
     <div className='flex items-center justify-between pl-28 pr-28 pt-4 '>
     <button onClick={onChangePrev} disabled={page<=1} className='flex items-center justify-center rounded-md bg-green-600 h-8 w-20 hover:bg-yellow-500  z'><AiOutlineArrowLeft color='white' size={20}/>Prev</button>
-    <button onClick={onChangeNext} disabled={page >= Math.ceil(totalResults/10) } className='flex items-center justify-center rounded-md bg-green-600 h-8 w-20 hover:bg-yellow-500 z'>Next<AiOutlineArrowRight color='white' size={20}/></button>
+    <button onClick={onChangeNext} disabled={page <= Math.ceil(totalResults/10) } className='flex items-center justify-center rounded-md bg-green-600 h-8 w-20 hover:bg-yellow-500 z'>Next<AiOutlineArrowRight color='white' size={20}/></button>
     </div>
 
     </>

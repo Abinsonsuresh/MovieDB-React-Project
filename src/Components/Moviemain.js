@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { API }  from "./context"
-import { NavLink } from 'react-router-dom'
+import { API, useGlobalContext }  from "./context"
+import { Link } from 'react-router-dom'
+import Navbar from './Navbar'
 
 
 const Moviemain = () => {
@@ -9,6 +10,7 @@ const Moviemain = () => {
     const [movie, setMovie] = useState("")
     const [loading, setLoading] = useState(true)
     const {Title, Poster, Year, Type, Runtime, Metascore, Awards, Country, Released, Genre, Plot, Language, imdbRating, imdbVotes, BoxOffice, Rated, Director, Writer, Actors} = movie;
+    const {mode, setMode} = useGlobalContext()
 
     const getMovies = async(url)=>{
         try{
@@ -33,28 +35,33 @@ const Moviemain = () => {
     {
         return(
             <>
-            <div className="h-[100vh] main flex justify-center items-center  bg-gray-950 text-white">
+            <div className="h-[100vh] main flex justify-center items-center ">
+                <div className={mode === "dark" ? "bg-black text-white" : "bg-white text-black"}>
                 <div className='text-6xl'>Loading...</div>
+
+                </div>
             </div>
             </>
         )
     }
     return(
         <>
-            <div className="navbar flex justify-between items-center p-4  bg-green-500">
-    <div className='text-white font-bold text-4xl'>MovieDB</div>
-        <NavLink to="/">GO HOME</NavLink>
-    </div>
+        <Navbar/>
         {/* <div className='border-2 border-yellow-200 border-opacity-80 rounded-lg overflow-hidden h-full p-4 '> */}
-        <div className="cont text-white flex flex-col md:flex-row p-4 justify-center items-center md:items-start md:mt-10 gap-9 h-[120vh] bg-black">
-        <div className='border-2 border-yellow-200 border-opacity-80 rounded-lg overflow-hidden h-[28rem] w-[19rem] md:h-[26rem] md:w-64 hover:scale-105'>
-        <img className='h-[28rem] w-[19rem] md:h-[26rem] md:w-64 ' src={Poster} alt="" />
+        <div className='p-8 h-full'>
+        <div className={mode === "dark" ? "bg-black text-white" : "bg-white text-black"}>
+        <div className="cont text-white flex flex-col md:flex-row p-4 justify-center items-center md:items-start md:mt-10 gap-9 " >
+        <div className='flex flex-col items-center overflow-hidden h-[28rem] w-[19rem] md:h-[26rem] md:w-64 hover:scale-105'>
+        <img className='h-auto object-contain w-auto border-4 border-yellow-200 border-opacity-80 rounded-lg ' src={Poster} alt="" />
+        <div className={mode === "dark" ? "bg-black text-white" : "bg-white text-black"}>
+
+        <div className='font-semibold'>{Year} ({Type})</div> 
         </div>
-
-
-        <div className="flex flex-col">
+        </div>
+        <div className={mode === "dark" ? "bg-black text-white" : "bg-white text-black"}>
+        <div className="flex flex-col flex-wrap w-[100%]">
         <h2 className='text-4xl font-bold'>{Title}</h2>
-        <div>{Year} ({Type})</div> 
+
         <div className='spa'> 
 
         <div>
@@ -67,7 +74,10 @@ const Moviemain = () => {
             </div>
         </div>
         <p>Metascore: {Metascore}</p>
+        <div className='flex flex-wrap'>
+
         <p>Plot: {Plot}</p>
+        </div>
         <div>Rated: {Rated}</div>
         <div>Genre: {Genre}</div>
         <div>Released: {Released}</div>
@@ -80,6 +90,8 @@ const Moviemain = () => {
         <div>Country: {Country}</div>
         <div>Awards: {Awards}</div>
         <div>BoxOffice: {BoxOffice}</div>
+      <button className=' mt-5 bg-green-500 w-36 h-10 rounded-full text-xl font-medium'><Link to='/Movies'>Go back</Link></button>
+
         </div>
 
 
@@ -87,6 +99,10 @@ const Moviemain = () => {
         </div>
         </div>
         {/* </div> */}
+        </div>
+        </div>
+        </div>
+
         </>
     )
 }
