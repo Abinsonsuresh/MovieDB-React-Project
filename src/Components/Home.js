@@ -18,7 +18,7 @@ const Home = () => {
     <div className>
       <div className='flex flex-col items-center justify-center mt-52'>
         <h2 className=' text-2xl md:text-5xl font-bold'>Welcome to the <span className='text-green-500'>world of Movies</span></h2>
-        <h3 className=' text-center text-xl md:text-2xl font-medium md:font-semibold pt-5'>Find ratings and information for the newest movie and TV shows</h3>
+        <h3 className=' text-center text-xl md:text-2xl font-medium md:font-semibold pt-5'>Find ratings and information of movies and TV shows</h3>
       <button className=' mt-5 bg-green-500 w-52 h-14 rounded-full text-xl font-bold'><Link to='/Movies'>Go to Movies</Link></button>
       </div>
     </div>
