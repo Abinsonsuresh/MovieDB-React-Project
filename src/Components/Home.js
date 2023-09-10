@@ -1,6 +1,6 @@
 import React from 'react'
 import img from '../Assets/3.jpg'
-import '../Components/vis.css'
+//import '../Components/vis.css'
 import Movies from './Movies'
 import Navbar from './Navbar'
 import { useGlobalContext } from './context'
@@ -12,7 +12,7 @@ const Home = () => {
   const{mode} =useGlobalContext()
   return (
     <>
-    <div className='bgkaro h-[100vh] '>
+    <div className='bg-black h-[100vh] '>
     <Navbar/>
     <div className='p-4 md:p-24'>
     <div className>
